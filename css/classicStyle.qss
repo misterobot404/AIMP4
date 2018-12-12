@@ -1,0 +1,42 @@
+QWidget { 
+           background-color:#4F4F4F; 
+           border: 1px solid black;
+           }
+
+QToolButton { 
+           background-color: #de8e37;
+           icon-size: 12px;
+           padding-left: 10px;
+           padding-right: 10px;
+          padding-top: 5px;
+           padding-bottom: 5px;
+           border: 1px solid #292929;
+ }
+
+ QToolButton:pressed {
+          	background-color: #292929;       
+           }
+
+QLabel {
+           color: #8f8f8f;
+           border: none;
+           margin: 6px;
+           }
+
+QTableView {
+           background-color: white;
+           color: black;
+           border: 1px solid #e2e2de;
+           }
+
+QTableView::item:selected {
+           background-color: #de8e37;
+           }
+
+QHeaderView::section:horizintal {
+           background-color: white;
+           border-style: none;
+           color: black;
+           border: 1px solid #e2e2de;
+           padding: 6px;
+           }
