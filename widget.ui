@@ -16,6 +16,9 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
   <property name="windowTitle">
    <string>AIMP4</string>
   </property>
@@ -23,13 +26,30 @@
    <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0" colspan="8">
-    <widget class="QTableView" name="playlistView"/>
-   </item>
-   <item row="0" column="7">
-    <widget class="QLabel" name="currentTrack">
+   <item row="0" column="2">
+    <widget class="QToolButton" name="btn_play">
      <property name="text">
-      <string/>
+      <string>...</string>
+     </property>
+     <property name="icon">
+      <iconset resource="buttons.qrc">
+       <normaloff>:/buttons/play.png</normaloff>:/buttons/play.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="9">
+    <widget class="QTableView" name="playlistView">
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="dragEnabled">
+      <bool>true</bool>
+     </property>
+     <property name="dragDropMode">
+      <enum>QAbstractItemView::DragDrop</enum>
+     </property>
+     <property name="defaultDropAction">
+      <enum>Qt::IgnoreAction</enum>
      </property>
     </widget>
    </item>
@@ -44,6 +64,13 @@
      </property>
     </widget>
    </item>
+   <item row="0" column="8">
+    <widget class="QLabel" name="currentTrack">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="0">
     <widget class="QToolButton" name="btn_add">
      <property name="icon">
@@ -52,29 +79,18 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="2">
-    <widget class="QToolButton" name="btn_play">
+   <item row="0" column="3">
+    <widget class="QToolButton" name="btn_pause">
      <property name="text">
       <string>...</string>
      </property>
      <property name="icon">
       <iconset resource="buttons.qrc">
-       <normaloff>:/buttons/play.png</normaloff>:/buttons/play.png</iconset>
+       <normaloff>:/buttons/pause.png</normaloff>:/buttons/pause.png</iconset>
      </property>
     </widget>
    </item>
-   <item row="0" column="5">
-    <widget class="QToolButton" name="btn_next">
-     <property name="text">
-      <string>...</string>
-     </property>
-     <property name="icon">
-      <iconset resource="buttons.qrc">
-       <normaloff>:/buttons/skip-next.png</normaloff>:/buttons/skip-next.png</iconset>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="6">
+   <item row="0" column="7">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -87,6 +103,17 @@
      </property>
     </spacer>
    </item>
+   <item row="0" column="5">
+    <widget class="QToolButton" name="btn_next">
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="icon">
+      <iconset resource="buttons.qrc">
+       <normaloff>:/buttons/skip-next.png</normaloff>:/buttons/skip-next.png</iconset>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="1">
     <widget class="QToolButton" name="btn_previous">
      <property name="text">
@@ -98,14 +125,13 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="3">
-    <widget class="QToolButton" name="btn_pause">
-     <property name="text">
-      <string>...</string>
+   <item row="0" column="6">
+    <widget class="QSlider" name="horizontalSlider">
+     <property name="styleSheet">
+      <string notr="true"/>
      </property>
-     <property name="icon">
-      <iconset resource="buttons.qrc">
-       <normaloff>:/buttons/pause.png</normaloff>:/buttons/pause.png</iconset>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </item>

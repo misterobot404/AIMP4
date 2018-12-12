@@ -1,13 +1,13 @@
 #include "widget.h"
 #include "ui_widget.h"
-#include <QFileDialog>
-#include <QDir>
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
+
+    setAcceptDrops ( true );
 
     QMenuBar* menuBar = new QMenuBar();
 
@@ -47,7 +47,8 @@ Widget::Widget(QWidget *parent) :
     m_player = new QMediaPlayer(this);
     m_playlist = new QMediaPlaylist(m_player);
     m_player->setPlaylist(m_playlist);          // устанавливаем плейлист в плеер
-    m_player->setVolume(70);                    // громкость
+    m_player->setVolume(50);                    // громкость
+    ui->horizontalSlider->setValue(50);
     m_playlist->setPlaybackMode(QMediaPlaylist::Loop);  // устанавливаем циклический режим проигрывания плейлиста
 
     // подключаем кнопки управления к слотам управления
@@ -115,3 +116,20 @@ void Widget::setStyleBlack()
     Widget::setStyleSheet(StyleSheet);
 }
 
+void Widget :: dragEnterEvent ( QDragEnterEvent * event ) {
+    event -> acceptProposedAction (); }
+void Widget :: dropEvent ( QDropEvent * event ) {
+    foreach (QUrl filePath, event->mimeData()->urls()) {
+        QList<QStandardItem *> items;
+        items.append(new QStandardItem(QDir(filePath.toLocalFile()).dirName()));
+        items.append(new QStandardItem(filePath.toLocalFile()));
+        m_playListModel->appendRow(items);
+        m_playlist->addMedia(QUrl(filePath));
+    }
+}
+
+
+void Widget::on_horizontalSlider_sliderMoved(int position)
+{
+    m_player->setVolume(position);
+}

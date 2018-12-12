@@ -41,3 +41,18 @@ QHeaderView::section:horizintal {
            border: 1px solid #e2e2de;
            padding: 6px;
            }
+
+           
+
+QSlider::groove:horizontal {
+    background: #32414B;
+    height: 4px;
+    margin: 0px;
+}
+
+QSlider::handle:horizontal {
+    background: #787878;
+    width: 8px;
+    height: 8px;
+    margin: -8px 0;
+}

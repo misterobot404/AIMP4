@@ -40,3 +40,25 @@ QHeaderView::section:horizintal {
            border: 1px solid #e2e2de;
            padding: 6px;
            }
+
+
+QSlider::groove:horizontal {
+    background: #DE8E37;
+    border: 1px solid #32414B;
+    height: 4px;
+    margin: 0px;
+    border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+    background: #787878;
+    border: 1px solid #32414B;
+    width: 8px;
+    height: 8px;
+    margin: -8px 0;
+    border-radius: 4px;
+}
+
+QSlider {
+	border: 0px;
+}
